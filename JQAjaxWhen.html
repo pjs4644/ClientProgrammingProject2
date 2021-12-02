@@ -40,12 +40,42 @@ $(document).ready(function(){
 
         for (let i = 0; i < minorData[0].UgMinors.length; i++){
             console.log(minorData[0].UgMinors[i].name);
+            content.append("Minor ID:")
+            content.append(document.createElement("br"));
             content.append(minorData[0].UgMinors[i].name);
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append("Minor Name:")
             content.append(document.createElement("br"));
             content.append(minorData[0].UgMinors[i].title);
             content.append(document.createElement("br"));
             content.append(document.createElement("br"));
+            content.append("Description");
             content.append(document.createElement("br"));
+            content.append(minorData[0].UgMinors[i].description);
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append("Courses:");
+            content.append(document.createElement("br"));
+            for (let j = 0; j < minorData[0].UgMinors[i].courses.length; j++) {
+                content.append(minorData[0].UgMinors[i].courses[j]);
+                content.append(document.createElement("br"));
+            }
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+
             content.append(document.createElement("br"));
             content.append(document.createElement("br"));
             content.append(document.createElement("br"));
