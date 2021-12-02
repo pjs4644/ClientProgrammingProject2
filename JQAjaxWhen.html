@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>340 p2 ex</title>
+<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+	//api:  http://ist-solace.main.ad.rit.edu/api/
+$(document).ready(function(){
+
+
+    let d1 = myXhr({path:'/minors/'});
+
+    let d2 = myXhr({path:'/course/courseID=ISTE-230'});
+
+
+    $.when(d1, d2).done(function(minorData, courseData) {
+        console.log(minorData);
+			  console.log(minorData[0]);
+
+			  console.log(courseData);
+        console.log(courseData[0]);
+
+      }).fail (function(jqXHR) {
+        // Consider using the jQueryUI "Dialog" widget to display errors
+        $('#content').append(jqXHR.responseText);
+    });
+	
+	function myXhr(pathName){
+		return $.ajax({
+			type:'get',
+			url:'http://solace.ist.rit.edu/~plgics/proxy.php',
+			dataType:'json',
+			data:pathName,
+			cache:false,
+			async:true,
+		});
+	}
+});
+</script>
+</head>
+<body>
+  <h2>IST Dept Site</h2>
+	<section id="content" style="height:300px; font-size: large;"></section>
+</body>
+</html>
