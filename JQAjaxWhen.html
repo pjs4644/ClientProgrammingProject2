@@ -22,8 +22,49 @@ $(document).ready(function(){
 			  console.log(courseData);
         console.log(courseData[0]);
 
+        var content = document.getElementById("content");
+        content.append(courseData[0].courseID);
+        content.append(document.createElement("br"));
+        content.append(document.createElement("br"));
+        content.append(courseData[0].title);
+        content.append(document.createElement("br"));
+        content.append(document.createElement("br"));
+        content.append(courseData[0].description);
+
+
+        content.append(document.createElement("br"));
+        content.append(document.createElement("br"));
+        content.append(document.createElement("br"));
+        content.append(document.createElement("br"));
+        content.append(document.createElement("br"));
+
+        for (let i = 0; i < minorData[0].UgMinors.length; i++){
+            console.log(minorData[0].UgMinors[i].name);
+            content.append(minorData[0].UgMinors[i].name);
+            content.append(document.createElement("br"));
+            content.append(minorData[0].UgMinors[i].title);
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+            content.append(document.createElement("br"));
+    }
+
       }).fail (function(jqXHR) {
         // Consider using the jQueryUI "Dialog" widget to display errors
+          $("#dialog").dialog({
+              dialogClass: "no-close",
+              buttons: [
+                  {
+                      text: "OK",
+                      click: function () {
+                          $(this).dialog("close");
+                      }
+                  }
+              ]
+          });
+          
         $('#content').append(jqXHR.responseText);
     });
 	
