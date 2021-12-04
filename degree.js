@@ -1,66 +1,36 @@
-/**
-     * Degrees
-     */
-    xhr('get', {path:"/degrees/"}, '#degrees').done(function(results){
 
-        // Undergraduate
-        $.each(results.undergraduate, function(){
-            // Front Modal - Back will only be loaded if clicked on
-            var frontModal = '<a href="#mainModal" rel="modal:open" class="degree-anchor">' +
-                                '<div class="uDegBoxes" data-degree="'+ this.degreeName +'">'+
-                                    '<p class="degree-name">' + this.title + '</p>' +
-                                    '<p class="degree-Desc">' + this.description + '</p>' +
-                                    '<i class="far fa-plus-square"></i>' +
-                                '</div>' +
-                            '</a>';
+//UNDERGRAD SECTION*********************************************************0
+getData({path:'/degrees/undergraduate'}).done(function(output){
+   //console.log(output);
+   $.each(output.undergraduate,function(index,value){
+      var head = value.title;
+      var desc = value.description;
+      $("#under").append($("<h3></h3>").attr("id","chead"+index));
+      $("#chead"+index).append(head);
+      $("#under").append($("<div></div>").attr("id","cdesc"+index).append($("<p></p>").attr("id","cpdesc").append(desc)));
+      $("#cpdesc").append($("<ol></ol>").attr("id","ol"+index));
+  });
+   $(function(){
+      $("#under").accordion();
+   });
+});
+//END OF UNDERGRAD**********************************************************
 
-            //Append to dom
-            $('#tabs-1').append(frontModal); // The modal itself - front
-       });
-
-
-       // Graduate
-       $.each(results.graduate, function(){
-            // Only make ones that have a title
-            if(this.title){
-                // Only showing front modal until clickec on
-                var frontModal = '<a href="#mainModal" rel="modal:open" class="degree-anchor">' +
-                                    '<div class="gDegBoxes" data-degree="'+ this.degreeName +'">'+
-                                        '<p class="degree-name">' + this.title + '</p>' +
-                                        '<p class="degree-Desc">' + this.description + '</p>' +
-                                        '<i class="far fa-plus-square"></i>' +
-                                    '</div>' +
-                                '</a>';
-
-                $('#tabs-2').append(frontModal); // append front
-            }  
-            else{
-                // Case of only degree without a title
-                // It's the certificates section
-                var certificates = '<div id="certificates-container">' +
-                        '<h1>' + this.degreeName + '</h1><i class="fas fa-award"></i>';
-
-                $.each(this.availableCertificates, function(index, elem){
-                    certificates += '<p>' + elem + '</p>';
-                });
-                certificates += '</div>';
-                $('#degrees').append(certificates);
-            }
-       });
-
-
-      
-       
-
-        // Now get the information for this object
-        $('.uDegBoxes').on('click', function(){
-            // Pass in the query 'results.undergraduate' and the data attribute value
-            buildDegreeBackModal(results.undergraduate, $(this).attr('data-degree'));
-        });
-
-        // Now get the information for this object
-        $('.gDegBoxes').on('click', function(){
-            // Pass in the query 'results.undergraduate' and the data attribute value
-            buildDegreeBackModal(results.graduate, $(this).attr('data-degree'));
-        });
-    });
+//GRADUTE section**********************************************************
+getData({path:'/degrees/graduate'}).done(function(output){
+   //console.log(output);
+   $.each(output.graduate,function(index,value){
+      var head = value.title;
+      var desc = value.description;
+      $("#grad").append($("<h3></h3>").attr("id","cheadg"+index));
+      $("#cheadg"+index).append(head);
+      $("#grad").append($("<div></div>").attr("id","cdescg"+index).append($("<p></p>").attr("id","cpdescg").append(desc)));
+      $("#cpdescg").append($("<ol></ol>").attr("id","ol"+index));
+  });
+  $("#cheadg"+3).hide();
+  $("#cdescg"+3).hide();
+   $(function(){
+      $("#grad").accordion();
+   });
+});
+//END OF GRADUATE**********************************************************
