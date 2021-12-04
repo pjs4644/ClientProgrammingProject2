@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+    <script type="text/javascript">
+        http://ist-solace.main.ad.rit.edu/api/
+        $(document).ready(function () {
+
+            function getData(pathName) {
+                return $.ajax({
+                    type: 'get',
+                    url: 'http://solace.ist.rit.edu/~plgics/proxy.php',
+                    dataType: 'json',
+                    data: pathName,
+                    cache: false,
+                    async: true
+                })
+            }
+
+            let d1 = getData({ path: '/employment/' });
+
+
+
+            $.when(d1).done(function (employment) {
+                console.log(employment);
+                console.log(employment[0]);
+
+                getData({ path: '/employment/' }).done(function (output, status, jqXHR) {
+                    console.log(status);
+                    console.log(jqXHR);
+                    console.log(output);
+                    for (var i = 0; i < output.length; i++) {
+                        $.each(output[i], function (index2, value2) {
+                            if (index2 == "title") {
+                                careerName = value2;
+                                $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                                $("#content").append("Hello");
+                            }
+                        }
+                        );
+                    }
+                });
+            });
+        });
+    </script>
+    <title></title>
+</head>
+<body>
+    <section id="content">
+
+    </section>
+</body>
+</html>
