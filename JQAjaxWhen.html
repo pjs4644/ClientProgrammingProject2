@@ -22,6 +22,11 @@ $(document).ready(function(){
 			  console.log(courseData);
         console.log(courseData[0]);
 
+       /* var minorID = document.getElementById("MinorID");
+        var minorName = document.getElementById("MinorName");
+        var minorDescription = document.getElementById("MinorDescription");
+        var minorCourses = document.getElementById("MinorCourses");
+
         var content = document.getElementById("content");
         content.append(courseData[0].courseID);
         content.append(document.createElement("br"));
@@ -40,27 +45,32 @@ $(document).ready(function(){
 
         for (let i = 0; i < minorData[0].UgMinors.length; i++){
             console.log(minorData[0].UgMinors[i].name);
-            content.append("Minor ID:")
-            content.append(document.createElement("br"));
-            content.append(minorData[0].UgMinors[i].name);
-            content.append(document.createElement("br"));
-            content.append(document.createElement("br"));
-            content.append("Minor Name:")
-            content.append(document.createElement("br"));
-            content.append(minorData[0].UgMinors[i].title);
-            content.append(document.createElement("br"));
-            content.append(document.createElement("br"));
-            content.append("Description");
-            content.append(document.createElement("br"));
-            content.append(minorData[0].UgMinors[i].description);
-            content.append(document.createElement("br"));
-            content.append(document.createElement("br"));
-            content.append("Courses:");
-            content.append(document.createElement("br"));
+
+            minorID.append("Minor ID:")
+            minorID.append(document.createElement("br"));
+            minorID.append(minorData[0].UgMinors[i].name);
+            minorID.append(document.createElement("br"));
+            minorID.append(document.createElement("br"));
+
+            minorName.append("Minor Name:")
+            minorName.append(document.createElement("br"));
+            minorName.append(minorData[0].UgMinors[i].title);
+            minorName.append(document.createElement("br"));
+            minorName.append(document.createElement("br"));
+
+            minorDescription.append("Description");
+            minorDescription.append(document.createElement("br"));
+            minorDescription.append(minorData[0].UgMinors[i].description);
+            minorDescription.append(document.createElement("br"));
+            minorDescription.append(document.createElement("br"));
+
+            minorCourses.append("Courses:");
+            minorCourses.append(document.createElement("br"));
             for (let j = 0; j < minorData[0].UgMinors[i].courses.length; j++) {
-                content.append(minorData[0].UgMinors[i].courses[j]);
-                content.append(document.createElement("br"));
+                minorCourses.append(minorData[0].UgMinors[i].courses[j]);
+                minorCourses.append(document.createElement("br"));
             }
+
             content.append(document.createElement("br"));
             content.append(document.createElement("br"));
             content.append(document.createElement("br"));
@@ -79,21 +89,11 @@ $(document).ready(function(){
             content.append(document.createElement("br"));
             content.append(document.createElement("br"));
             content.append(document.createElement("br"));
-    }
+    }*/
 
       }).fail (function(jqXHR) {
         // Consider using the jQueryUI "Dialog" widget to display errors
-          $("#dialog").dialog({
-              dialogClass: "no-close",
-              buttons: [
-                  {
-                      text: "OK",
-                      click: function () {
-                          $(this).dialog("close");
-                      }
-                  }
-              ]
-          });
+         
           
         $('#content').append(jqXHR.responseText);
     });
@@ -113,6 +113,11 @@ $(document).ready(function(){
 </head>
 <body>
   <h2>IST Dept Site</h2>
-	<section id="content" style="height:300px; font-size: large;"></section>
+	<section id="content" style="height:300px; font-size: large;">
+        <p id="MinorID"></p>
+        <p id="MinorName"></p>
+        <p id="MinorDescription"></p>
+        <p id="MinorCourses"></p>
+    </section>
 </body>
 </html>
