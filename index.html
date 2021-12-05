@@ -45,7 +45,6 @@
             console.log(jqXHR);
             $("#content").append("<h1 id='minorsTitle'>Minors</h1>")
             for (var i = 0; i < output.UgMinors.length; i++) {
-                <div id="Minors">
                 $.each(output.UgMinors[i], function (index2, value2) {
                     if (index2 == "name") {
                         courseName = value2;
@@ -79,7 +78,7 @@
                     }
                     $("#content").append("<br>");
                 })
-                </div>
+                
             } //for
 
         }); //getdata
@@ -92,9 +91,8 @@
         //UNDERGRAD SECTION*********************************************************0
         getData({ path: '/degrees/undergraduate' }).done(function (output) {
             //console.log(output);
-             <div id="undergraduateTitle">
             $('#under').append("<h1 id='undergradTitle'>Undergraduate</h1>");
-            </div>
+            
             $.each(output.undergraduate, function (index, value) {
                 var title = value.title;
                 var desc = value.description;
@@ -113,7 +111,7 @@
         //GRADUTE section**********************************************************
         getData({ path: '/degrees/graduate' }).done(function (output) {
             //console.log(output);
-             <div id="graduate">
+             
             $('#grad').append("<h1 id='gradTitle'>Graduate</h1>");
             $.each(output.graduate, function (index, value) {
                 var title = value.title;
@@ -126,7 +124,7 @@
             $("#cheadg" + 3).hide();
             $("#cdescg" + 3).hide();
             
-            </div>
+            
             /*$(function () {
                 $("#grad").accordion();
             });*/
@@ -136,13 +134,13 @@
          
         getData({ path: '/about/' }).done(function (output) {
             console.log(output);
-             <div id="about">
+             
             $('#content').append("<h1 id='aboutTitle'>About</h1>");
             $('#content').append(output.title + "<br>");
             $('#content').append(output.description + "<br>");
             $('#content').append(output.quote + "<br>");
             $('#content').append(output.quoteAuthor + "<br>");
-            </div>
+            
 
         });
         //END OF ABOUT*******************************************************************
