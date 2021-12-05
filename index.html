@@ -81,11 +81,9 @@
 
         });
 
-        var footer = document.getElementById("footer");
-        getData({ path: '/footer/copyright' }).done(function (output) {
+        getData({ path: '/footer/' }).done(function (output) {
+            $("#footer").append(output.copyright.html)
             console.log(output.copyright);
-            footer.append(output.copyright.title);
-            footer.append(output.copyright.html);
         });
 
         
@@ -97,8 +95,9 @@
     </head>
 
 <body>
-    <section id="content" style="height:300px; font-size: large;">
+    <section id="content" font-size: large;">
     </section>
+    <iframe src="http://ist.rit.edu/api/map.php" title="Rit employement map"></iframe>
     <footer id="footer">
 
     </footer>
