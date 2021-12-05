@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+
 <title>Page Title</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="">
@@ -36,6 +37,44 @@
         }).fail(function (jqXHR) {
             // Consider using the jQueryUI "Dialog" widget to display errors
             $('#content').append(jqXHR.responseText);
+        });
+
+
+        //Outputs undergrad degrees and their information
+        getData({ path: '/degrees/undergraduate' }).done(function (output) {
+            //console.log(output);
+
+
+            $.each(output.undergraduate, function (index, value) {
+                var head = value.title;
+                var desc = value.description;
+                $("#under").append($("<h3></h3>").attr("id", "chead" + index));
+                $("#chead" + index).append(head);
+                $("#under").append($("<div></div>").attr("id", "cdesc" + index).append($("<p></p>").attr("id", "cpdesc").append(desc)));
+                $("#cpdesc").append($("<ol></ol>").attr("id", "ol" + index));
+            });
+            $(function () {
+                $("#under").accordion();
+            });
+        });
+
+
+        //Outputs graduate degrees and their information
+        getData({ path: '/degrees/graduate' }).done(function (output) {
+            //console.log(output);
+            $.each(output.graduate, function (index, value) {
+                var head = value.title;
+                var desc = value.description;
+                $("#grad").append($("<h3></h3>").attr("id", "cheadg" + index));
+                $("#cheadg" + index).append(head);
+                $("#grad").append($("<div></div>").attr("id", "cdescg" + index).append($("<p></p>").attr("id", "cpdescg").append(desc)));
+                $("#cpdescg").append($("<ol></ol>").attr("id", "ol" + index));
+            });
+            $("#cheadg" + 3).hide();
+            $("#cdescg" + 3).hide();
+            $(function () {
+                $("#grad").accordion();
+            });
         });
 
 
@@ -87,9 +126,88 @@
 </script>
     </head>
 
-<body>
-    <section id="content" style="height:300px; font-size: large;">
-    </section>
-</body>
+    <body>
+        
+        <div id="degrees" class="altSection">
+
+            <p class="section-heading">Degrees</p>
+
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Undergraduate</a></li>
+                    <li><a href="#tabs-2">Graduate</a></li>
+                </ul>
+                <div id="tabs-1"></div>
+                <div id="tabs-2"></div>
+            </div>
+
+            <h2 class="spacer">Undergraduate</h2>
+            <div id="under"></div>
+            <div id="chead"></div>
+            <div id="cpdesc"></div>
+
+            <h2 class="spacer">Graduate</h2>
+            <div id="grad"></div>
+            <div id="cheadg"></div>
+            <div id="cpdescg"></div>
+
+        </div>
+
+        <section id="content" style="height:300px; font-size: large;">
+        </section>
+
+        
+    </body>
 </html>
+
+<!--<style>
+    /* Tabs section 'undergraduate' & 'graduate' */
+    #tabs-1, #tabs-2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /* Individual Degree boxes */
+    .uDegBoxes, .gDegBoxes {
+        flex: 1 1 25%;
+        width: 18em;
+        height: 14em;
+        border: 3px solid gray;
+        border-radius: .5em;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .uDegBoxes:hover, .gDegBoxes:hover {
+        border: 3px solid green;
+        background-color: yellow;
+     }
+    /* Anchor modal tag to seperate btw boxes */
+    .degree-anchor {
+        margin: 1em;
+    }
+    /* Name of the degree */
+    .degree-name {
+        font-size: 1.1rem;
+        padding: 1em;
+        font-weight: bold;
+    }
+    /* Degree descriptions */
+    .degree-Desc {
+        font-size: .9rem;
+        padding: 1em;
+    }
+
+    ul.concentration-list {
+        padding-left: 1.4em;
+    }
+
+    .concentration-subheading {
+        font-size: 1.2rem;
+        padding-bottom: .5em;
+    }
+    /* Certificates section in the degrees section */
+    #certificates-container {
+        margin-top: 1.5em;
+    }
+</style>-->
 
