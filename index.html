@@ -22,7 +22,7 @@
 
         //Outputs Faculty
         getData({ path: '/people/faculty/' }).done(function (data) {
-
+            $('#content').append("<h1 id='facultyTitle'>Faculty</h1>")
             let ul = document.createElement('ul');
             ul.id = "facultyUL";
             $('#content').append(ul);
@@ -43,6 +43,7 @@
         getData({ path: '/minors/' }).done(function (output, status, jqXHR) {
             console.log(status);
             console.log(jqXHR);
+            $("#content").append("<h1 id='minorsTitle'>Minors</h1>")
             for (var i = 0; i < output.UgMinors.length; i++) {
                 $.each(output.UgMinors[i], function (index2, value2) {
                     if (index2 == "name") {
@@ -86,6 +87,106 @@
             console.log(output.copyright);
         });
 
+        //UNDERGRAD SECTION*********************************************************0
+        getData({ path: '/degrees/undergraduate' }).done(function (output) {
+            //console.log(output);
+            $('#grad').append("<h1 id='undergradTitle'>Undergraduate</h1>");
+            $.each(output.undergraduate, function (index, value) {
+                var title = value.title;
+                var desc = value.description;
+                $("#under").append($("<h3></h3>").attr("id", "chead" + index));
+                $("#chead" + index).append(title);
+                $("#under").append($("<div></div>").attr("id", "cdesc" + index).append($("<p></p>").attr("id", "cpdesc").append(desc)));
+                $("#cpdesc").append($("<ol></ol>").attr("id", "ol" + index));
+            });
+            /*$(function () {
+                $("#under").accordion();
+            });*/
+        });
+    //END OF UNDERGRAD**********************************************************
+        //GRADUTE section**********************************************************
+        getData({ path: '/degrees/graduate' }).done(function (output) {
+            //console.log(output);
+            $('#grad').append("<h1 id='gradTitle'>Graduate</h1>");
+            $.each(output.graduate, function (index, value) {
+                var title = value.title;
+                var desc = value.description;
+                $("#grad").append($("<h3></h3>").attr("id", "cheadg" + index));
+                $("#cheadg" + index).append(title);
+                $("#grad").append($("<div></div>").attr("id", "cdescg" + index).append($("<p></p>").attr("id", "cpdescg").append(desc)));
+                $("#cpdescg").append($("<ol></ol>").attr("id", "ol" + index));
+            });
+            $("#cheadg" + 3).hide();
+            $("#cdescg" + 3).hide();
+            /*$(function () {
+                $("#grad").accordion();
+            });*/
+        });
+        //END OF GRADUATE*************************************************************
+        //ABOUT SECTION**********************************************************
+        getData({ path: '/about/' }).done(function (output) {
+            console.log(output);
+            $('#content').append("<h1 id='aboutTitle'>About</h1>");
+            $('#content').append(output.title + "<br>");
+            $('#content').append(output.description + "<br>");
+            $('#content').append(output.quote + "<br>");
+            $('#content').append(output.quoteAuthor + "<br>");
+
+
+        });
+        //END OF ABOUT*******************************************************************
+        //Research Section**********************************************************
+        getData({ path: '/research/' }).done(function (output) {
+            console.log(output);
+            $('#content').append("<h1 id='researchTitle'>Research</h1>");
+            for (var i = 0; i < output.byFaculty.length; i++) {
+                $.each(output.byFaculty[i], function (index2, value2) {
+
+                    if (index2 == "facultyName") {
+                        $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>")
+                    }
+                    else if (index2 == "username") {
+                        $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                    }
+                    else if (index2 == "citations") {
+                        $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                        let researchUl = document.createElement('ul');
+                        researchUl.id = "researchUL";
+                        $('#content').append(researchUl);
+                        for (let j = 0; j < index2.length; j++) {
+                            $("#facultyUL").append(index2[j]);
+
+                        }
+                    }
+
+                });
+
+            }
+
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            for (var i = 0; i < output.byInterestArea.length; i++) {
+                $.each(output.byInterestArea[i], function (index2, value2) {
+
+                    if (index2 == "areaName") {
+                        $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>")
+                    }
+                    else if (index2 == "citations") {
+                        $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>" + "<br>")
+                    }
+
+                });
+            }
+        });
+        //END OF RESEARCH*****************************************************
+
+
         
     })
 
@@ -96,6 +197,7 @@
 
 <body>
     <section id="content" font-size: large;">
+        <div id="grad"></div>
     </section>
     <iframe src="http://ist.rit.edu/api/map.php" title="Rit employement map"></iframe>
     <footer id="footer">

@@ -8,9 +8,9 @@
     /* negative value of footer height */
 }
 
-iframe {
-    width: 1020px;
-    height: 1020px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+iframe{
+   width:1020px;
+   height:1020px;
+   overflow-x:hidden;
+   overflow-y:hidden;
 }
