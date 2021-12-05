@@ -27,20 +27,17 @@
                 console.log(research);
                 console.log(research[0]);
             });
-            getData({ path: '/research/' }).done(function (output, status, jqXHR) {
+            getData({ path: '/research/' }).done(function (output) {
                 console.log(output);
                 for (var i = 0; i < output.byFaculty.length; i++) {
                     $.each(output.byFaculty[i], function (index2, value2) {
                         if (index2 == "facultyName") {
-                            $("#content").append(
-                                "<b>" + index2 + "</b>: " + value2 + "<br>"
-                            )
+                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>")
                         }
                         else if (index2 == "username") {
                             $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
                         }
                         else if (index2 == "citations") {
-                            console.log("citation" + index2[1]);
                             $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
                             let researchUl = document.createElement('ul');
                             researchUl.id = "researchUL";
@@ -52,6 +49,25 @@
                         }
                     });
 
+                }
+
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                for (var i = 0; i < output.byInterestArea.length; i++) {
+                    $.each(output.byInterestArea[i], function (index2, value2) {
+                        if (index2 == "areaName") {
+                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>")
+                        }
+                        else if (index2 == "citations") {
+                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>" + "<br>")
+                        }
+                    });
                 }
             });
         });
