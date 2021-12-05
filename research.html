@@ -31,8 +31,25 @@
                 console.log(output);
                 for (var i = 0; i < output.byFaculty.length; i++) {
                     $.each(output.byFaculty[i], function (index2, value2) {
-                        console.log(index2 + "," + value2);
-                        //if () {}
+                        if (index2 == "facultyName") {
+                            $("#content").append(
+                                "<b>" + index2 + "</b>: " + value2 + "<br>"
+                            )
+                        }
+                        else if (index2 == "username") {
+                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                        }
+                        else if (index2 == "citations") {
+                            console.log("citation" + index2[1]);
+                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                            let researchUl = document.createElement('ul');
+                            researchUl.id = "researchUL";
+                            $('#content').append(researchUl);
+                            for (let j = 0; j < index2.length; j++) {
+                                $("#facultyUL").append(index2[j]);
+
+                            }
+                        }
                     });
 
                 }
