@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Research</title>
+     <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+    <script type="text/javascript">
+        http://ist-solace.main.ad.rit.edu/api/
+        $(document).ready(function () {
+
+            function getData(pathName) {
+                return $.ajax({
+                    type: 'get',
+                    url: 'http://solace.ist.rit.edu/~plgics/proxy.php',
+                    dataType: 'json',
+                    data: pathName,
+                    cache: false,
+                    async: true
+                })
+            }
+
+            let d1 = getData({ path: '/research/' });
+
+            $.when(d1).done(function (research) {
+                console.log(research);
+                console.log(research[0]);
+            });
+            getData({ path: '/research/' }).done(function (output, status, jqXHR) {
+                console.log(output);
+                for (var i = 0; i < output.byFaculty.length; i++) {
+                    $.each(output.byFaculty[i], function (index2, value2) {
+                        console.log(index2 + "," + value2);
+                        //if () {}
+                    });
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <section id="content">
+
+    </section>
+</body>
+</html>

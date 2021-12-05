@@ -25,16 +25,20 @@
 
 
             $.when(d1).done(function (employment) {
-                console.log(employment);
-                console.log(employment[0]);
+                //console.log(employment);
+                //console.log(employment[0]);
 
                 getData({ path: '/employment/' }).done(function (output, status, jqXHR) {
-                    console.log(status);
-                    console.log(jqXHR);
+                    //console.log(status);
+                    //console.log(jqXHR);
                     console.log(output);
+                    console.log(output[0]);
                     for (var i = 0; i < output.length; i++) {
+                        console.log(output[i]);
                         $.each(output[i], function (index2, value2) {
+                            console.log(index2);
                             if (index2 == "title") {
+                                console.log("hello");
                                 careerName = value2;
                                 $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
                                 $("#content").append("Hello");
