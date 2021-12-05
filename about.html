@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>about</title>
+    <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+    <script>
+        $(document).ready(function () {
+            function getData(pathName) {
+                return $.ajax({
+                    type: 'get',
+                    url: 'http://solace.ist.rit.edu/~plgics/proxy.php',
+                    dataType: 'json',
+                    data: pathName,
+                    cache: false,
+                    async: true
+                })
+            }
+
+            let d1 = getData({ path: '/about/' });
+
+            $.when(d1).done(function (about) {
+                console.log(about);
+                console.log(about[0]);
+            });
+
+            getData({ path: '/about/' }).done(function (output) {
+                console.log(output);
+                $('#content').append(output.title + "<br>");
+                $('#content').append(output.description + "<br>");
+                $('#content').append(output.quote + "<br>");
+                $('#content').append(output.quoteAuthor + "<br>");
+
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <section id="content">
+
+    </section>
+</body>
+</html>
