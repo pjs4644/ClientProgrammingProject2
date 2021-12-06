@@ -115,9 +115,15 @@
             console.log(jqXHR);
             $("#content").append("<h1 id='minorsTitle'>Minors</h1>")
             for (var i = 0; i < output.UgMinors.length; i++) {
+
+                var masterMin = document.createElement("div");
+                masterMin.id = 'mastermin';
+                $('#content').append(masterMin);
+
                 var minorsSection = document.createElement("div");
                 minorsSection.id = 'minorInfo' + i;
-                $('#content').append(minorsSection);
+                $('#masterMin').append(minorsSection);
+
                 $.each(output.UgMinors[i], function (index2, value2) {
                     if (index2 == "name") {
                         courseName = value2;
