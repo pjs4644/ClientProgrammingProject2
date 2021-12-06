@@ -183,9 +183,14 @@
             console.log(output);
             $('#content').append("<h1 id='researchTitle'>Research</h1>");
             for (var i = 0; i < output.byFaculty.length; i++) {
+
+                var masterRes = document.createElement('div');
+                masterRes.id = 'masterRes'
+                $('#content').append(masterRes);
+
                 var researchInfo = document.createElement('div');
                 researchInfo.id = 'researchInfo' + i
-                $('#content').append(researchInfo);
+                $('#masterRes').append(researchInfo);
                 $.each(output.byFaculty[i], function (index2, value2) {
 
                     if (index2 == "facultyName") {
