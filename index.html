@@ -23,11 +23,13 @@
 
         //Outputs Faculty
         getData({ path: '/people/faculty/' }).done(function (data) {
-            $('#content').append("<h1 id='facultyTitle'>Faculty</h1>")
+            
 
             let fac = document.createElement('div');
             fac.id = "facDiv";
             $('#content').append(fac);
+
+            $('#facDiv').append("<h1>Faculty</h1>")
 
             let ul = document.createElement('ul');
             ul.id = "facultyUL";
