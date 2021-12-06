@@ -67,6 +67,22 @@ h1 {
     border-radius: 3%;
 }
 
+#researchDiv {
+    margin: 3%;
+    padding: 3%;
+    background: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3%;
+}
+
+#minorDiv {
+    margin: 3%;
+    padding: 3%;
+    background: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3%;
+}
+
 
 iframe{
    width:1020px;
