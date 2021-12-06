@@ -44,7 +44,7 @@
         getData({ path: '/degrees/undergraduate' }).done(function (output) {
             //console.log(output);
 
-
+            $('#under').append("<h1 id='undergradTitle'>Undergraduate</h1>");
             $.each(output.undergraduate, function (index, value) {
                 var name = value.degreeName.toUpperCase();
                 var head = value.title;
@@ -70,6 +70,7 @@
         //Outputs graduate degrees and their information
         getData({ path: '/degrees/graduate' }).done(function (output) {
             //console.log(output);
+            $('#grad').append("<h1 id='gradTitle'>Graduate</h1>");
             $.each(output.graduate, function (index, value) {
                 var nameg = value.degreeName.toUpperCase();
                 var head = value.title;
@@ -152,7 +153,6 @@
         //UNDERGRAD SECTION*********************************************************0
         getData({ path: '/degrees/undergraduate' }).done(function (output) {
             //console.log(output);
-            $('#under').append("<h1 id='undergradTitle'>Undergraduate</h1>");
             
             $.each(output.undergraduate, function (index, value) {
                 var title = value.title;
@@ -173,7 +173,7 @@
         getData({ path: '/degrees/graduate' }).done(function (output) {
             //console.log(output);
              
-            $('#grad').append("<h1 id='gradTitle'>Graduate</h1>");
+            
             $.each(output.graduate, function (index, value) {
                 var title = value.title;
                 var desc = value.description;
