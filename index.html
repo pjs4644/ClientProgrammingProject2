@@ -91,7 +91,7 @@
                     if (index2 == "name") {
                         courseName = value2;
                         $("#minorInfo" + i).append(
-                            "<b>" + index2 + "</b>: " + value2 + "<br>"
+                            "<b>Name: </b>" + value2 + "<br>"
                         )
                     } else if (index2 == "courses") {
                         $("#minorInfo" + i).append(
@@ -106,7 +106,7 @@
                             getData({ path: '/course/courseID=' + value4 }).done(function (output1) {
                                 $.each(output1, function (index20, value20) {
                                     $("#minorInfo" + i).append(
-                                        "<b>" + index20 + "</b>: " + value20 + "<br>"
+                                        "<b>Description: </b>" + value20 + "<br>"
                                     )
                                 })
                                 $("#minorInfo" + i).append("<br>");
@@ -200,13 +200,13 @@
                 $.each(output.byFaculty[i], function (index2, value2) {
 
                     if (index2 == "facultyName") {
-                        $("#researchInfo" + i).append("<b>" + index2 + "</b>: " + value2 + "<br>")
+                        $("#researchInfo" + i).append("<b>Name: </b>" + value2 + "<br>")
                     }
                     else if (index2 == "username") {
-                        $("#researchInfo" + i).append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                        $("#researchInfo" + i).append("<b>Username: </b>" + value2 + "<br>");
                     }
                     else if (index2 == "citations") {
-                        $("#researchInfo" + i).append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                        $("#researchInfo" + i).append("<b>Citations: </b>" + value2 + "<br>");
                         let researchUl = document.createElement('ul');
                         researchUl.id = "researchUL";
                         $('#researchInfo' + i).append(researchUl);
@@ -232,10 +232,10 @@
                 $.each(output.byInterestArea[i], function (index2, value2) {
 
                     if (index2 == "areaName") {
-                        $("#interestAreaInfo" + i).append("<b>" + index2 + "</b>: " + value2 + "<br>")
+                        $("#interestAreaInfo" + i).append("<b>Area name: </b>" + value2 + "<br>")
                     }
                     else if (index2 == "citations") {
-                        $("#interestAreaInfo" + i).append("<b>" + index2 + "</b>: " + value2 + "<br>" + "<br>")
+                        $("#interestAreaInfo" + i).append("<b>Citations: </b>" + value2 + "<br>" + "<br>")
                     }
 
                 });

@@ -33,13 +33,13 @@
                     $.each(output.byFaculty[i], function (index2, value2) {
                         
                         if (index2 == "facultyName") {
-                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>")
+                            $("#content").append("<b>Name: </b>" + value2 + "<br>")
                         }
                         else if (index2 == "username") {
-                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                            $("#content").append("<b>Username: </b>" + value2 + "<br>");
                         }
                         else if (index2 == "citations") {
-                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                            $("#content").append("<b>Citations: </b>" + value2 + "<br>");
                             let researchUl = document.createElement('ul');
                             researchUl.id = "researchUL";
                             $('#content').append(researchUl);
@@ -65,10 +65,10 @@
                     $.each(output.byInterestArea[i], function (index2, value2) {
                         
                         if (index2 == "areaName") {
-                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>")
+                            $("#content").append("<b>Area Name: </b>" + value2 + "<br>")
                         }
                         else if (index2 == "citations") {
-                            $("#content").append("<b>" + index2 + "</b>: " + value2 + "<br>" + "<br>")
+                            $("#content").append("<b>Citations: </b>" + value2 + "<br>" + "<br>")
                         }
                         
                     });
