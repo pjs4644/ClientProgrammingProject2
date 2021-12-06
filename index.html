@@ -48,10 +48,22 @@
             $.each(output.undergraduate, function (index, value) {
                 var head = value.title;
                 var desc = value.description;
+
                 $("#under").append($("<h3></h3>").attr("id", "chead" + index));
-                $("#chead" + index).append(head);
+                    $("#chead" + index).append(head);
                 $("#under").append($("<div></div>").attr("id", "cdesc" + index).append($("<p></p>").attr("id", "cpdesc").append(desc)));
                 $("#cpdesc").append($("<ol></ol>").attr("id", "ol" + index));
+
+                $("#under").append("<b>Concentrations:</b>")
+
+                let concUl = document.createElement('ul');
+                concUl.id = "concUL";
+                
+                $("#content").append(concUl);
+
+                $.each(value.concentrations, function(index, value) {
+                    $("#under").append("<li>" + value + "</li>");
+                })
             });
             $(function () {
                 $("#under").accordion();
@@ -65,6 +77,8 @@
             $.each(output.graduate, function (index, value) {
                 var head = value.title;
                 var desc = value.description;
+                
+
                 $("#grad").append($("<h3></h3>").attr("id", "cheadg" + index));
                 $("#cheadg" + index).append(head);
                 $("#grad").append($("<div></div>").attr("id", "cdescg" + index).append($("<p></p>").attr("id", "cpdescg").append(desc)));
