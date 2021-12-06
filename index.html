@@ -167,10 +167,16 @@
                         $("#researchInfo" + i).append("<b>" + index2 + "</b>: " + value2 + "<br>");
                     }
                     else if (index2 == "citations") {
-                        $("#researchInfo" + i).append("<b>" + index2 + "</b>: " + value2 + "<br>");
                         let researchUl = document.createElement('ul');
-                        researchUl.id = "researchUL";
+                        researchUl.id = "researchUL" + i;
+                        $("#researchInfo" + i).append("<b>" + index2 + "</b>: ");
                         $('#researchInfo' + i).append(researchUl);
+                        
+                        for (let j = 0; j < value2.length; j++) {
+                            console.log(value2[j]);
+                            $("#researchUL" + i).append("<li> " + value2[j] + "</li>");
+                        }
+                       
                         
                     }
 
