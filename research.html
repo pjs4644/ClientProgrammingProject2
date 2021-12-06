@@ -28,21 +28,25 @@
                 console.log(research[0]);
             });
             getData({ path: '/research/' }).done(function (output) {
+                var research = document.createElement('div');
+                research.id = 'research';
+                $('#research').append(aboutInfo);
+
                 console.log(output);
                 for (var i = 0; i < output.byFaculty.length; i++) {
                     $.each(output.byFaculty[i], function (index2, value2) {
                         
                         if (index2 == "facultyName") {
-                            $("#content").append("<b>Name: </b>" + value2 + "<br>")
+                            $("#research").append("<b>Name: </b>" + value2 + "<br>")
                         }
                         else if (index2 == "username") {
-                            $("#content").append("<b>Username: </b>" + value2 + "<br>");
+                            $("#research").append("<b>Username: </b>" + value2 + "<br>");
                         }
                         else if (index2 == "citations") {
-                            $("#content").append("<b>Citations: </b>" + value2 + "<br>");
+                            $("#research").append("<b>Citations: </b>" + value2 + "<br>");
                             let researchUl = document.createElement('ul');
                             researchUl.id = "researchUL";
-                            $('#content').append(researchUl);
+                            $('#research').append(researchUl);
                             for (let j = 0; j < index2.length; j++) {
                                 $("#facultyUL").append(index2[j]);
 
