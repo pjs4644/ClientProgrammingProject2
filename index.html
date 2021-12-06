@@ -206,7 +206,7 @@
                         $("#researchInfo" + i).append("<b>Username: </b>" + value2 + "<br>");
                     }
                     else if (index2 == "citations") {
-                        $("#researchInfo" + i).append("<b>" + index2 + "</b>: " + value2 + "<br>");
+                        
                         let researchUl = document.createElement('ul');
                         researchUl.id = "researchUL" + i;
                         $("#researchInfo" + i).append("<b>" + index2 + "</b>: ");
@@ -236,13 +236,21 @@
                 var interestAreaInfo = document.createElement('div');
                 interestAreaInfo.id = 'interestAreaInfo' + i;
                 $('#content').append(interestAreaInfo);
+               
                 $.each(output.byInterestArea[i], function (index2, value2) {
 
                     if (index2 == "areaName") {
                         $("#interestAreaInfo" + i).append("<b>Area Name: </b>" + value2 + "<br>")
                     }
+
                     else if (index2 == "citations") {
-                        $("#interestAreaInfo" + i).append("<b>Citations: </b>" + value2 + "<br>" + "<br>")
+                        let researchUl2 = document.createElement('ul')
+                        researchUl2.id = 'interestUL' + i;
+                        $("#interestAreaInfo" + i).append("<b>Citations: </b>");
+                        $("#interestAreaInfo" + i).append(researchUl2);
+                        for (let j = 0; j < value2.length; j++) {
+                            $("#interestUL" + i).append("<li>" + value2[j] + "</li>" + "<br>")
+                        }
                     }
 
                 });
