@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Research</title>
+     <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+    <script type="text/javascript">
+        http://ist-solace.main.ad.rit.edu/api/
+        $(document).ready(function () {
+
+            function getData(pathName) {
+                return $.ajax({
+                    type: 'get',
+                    url: 'http://solace.ist.rit.edu/~plgics/proxy.php',
+                    dataType: 'json',
+                    data: pathName,
+                    cache: false,
+                    async: true
+                })
+            }
+
+            let d1 = getData({ path: '/research/' });
+
+            $.when(d1).done(function (research) {
+                console.log(research);
+                console.log(research[0]);
+            });
+            getData({ path: '/research/' }).done(function (output) {
+                console.log(output);
+                for (var i = 0; i < output.byFaculty.length; i++) {
+                    $.each(output.byFaculty[i], function (index2, value2) {
+                        
+                        if (index2 == "facultyName") {
+                            $("#content").append("<b>Name: </b>" + value2 + "<br>")
+                        }
+                        else if (index2 == "username") {
+                            $("#content").append("<b>Username: </b>" + value2 + "<br>");
+                        }
+                        else if (index2 == "citations") {
+                            $("#content").append("<b>Citations: </b>" + value2 + "<br>");
+                            let researchUl = document.createElement('ul');
+                            researchUl.id = "researchUL";
+                            $('#content').append(researchUl);
+                            for (let j = 0; j < index2.length; j++) {
+                                $("#facultyUL").append(index2[j]);
+
+                            }
+                        }
+                        
+                    });
+
+                }
+
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                $("#content").append("<br>")
+                for (var i = 0; i < output.byInterestArea.length; i++) {
+                    $.each(output.byInterestArea[i], function (index2, value2) {
+                        
+                        if (index2 == "areaName") {
+                            $("#content").append("<b>Area Name: </b>" + value2 + "<br>")
+                        }
+                        else if (index2 == "citations") {
+                            $("#content").append("<b>Citations: </b>" + value2 + "<br>" + "<br>")
+                        }
+                        
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <section id="content">
+
+    </section>
+</body>
+</html>
