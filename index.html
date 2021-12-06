@@ -45,38 +45,41 @@
             console.log(jqXHR);
             $("#content").append("<h1 id='minorsTitle'>Minors</h1>")
             for (var i = 0; i < output.UgMinors.length; i++) {
+                var minorsSection = document.createElement("div");
+                minorsSection.id = 'minorInfo' + i;
+                $('#content').append(minorsSection);
                 $.each(output.UgMinors[i], function (index2, value2) {
                     if (index2 == "name") {
                         courseName = value2;
-                        $("#content").append(
+                        $("#minorInfo" + i).append(
                             "<b>" + index2 + "</b>: " + value2 + "<br>"
                         )
                     } else if (index2 == "courses") {
-                        $("#content").append(
+                        $("#minorInfo" + i).append(
                             "<b>Courses</b>, see course details at end of page:<br>"
                         )
                         $.each(value2, function (index4A, value4A) {
-                            $("#content").append(
+                            $("#minorInfo" + i).append(
                                 value4A + "<br>"
                             )
                         })
                         $.each(value2, function (index4, value4) {
                             getData({ path: '/course/courseID=' + value4 }).done(function (output1) {
                                 $.each(output1, function (index20, value20) {
-                                    $("#content").append(
+                                    $("#minorInfo" + i).append(
                                         "<b>" + index20 + "</b>: " + value20 + "<br>"
                                     )
                                 })
-                                $("#content").append("<br>");
+                                $("#minorInfo" + i).append("<br>");
                             })
                         })
 
                     } else {
-                        $("#content").append(
+                        $("#minorInfo" + i).append(
                             "<b>" + index2 + "</b>: " + value2 + "<br>"
                         )
                     }
-                    $("#content").append("<br>");
+                    $("#minorInfo" + i).append("<br>");
                 })
                 
             } //for
