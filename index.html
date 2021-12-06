@@ -46,20 +46,16 @@
 
 
             $.each(output.undergraduate, function (index, value) {
+                var name = value.degreeName.toUpperCase();
                 var head = value.title;
                 var desc = value.description;
 
-                $("#under").append($("<h3></h3>").attr("id", "chead" + index));
-                    $("#chead" + index).append(head);
-                $("#under").append($("<div></div>").attr("id", "cdesc" + index).append($("<p></p>").attr("id", "cpdesc").append(desc)));
-                $("#cpdesc").append($("<ol></ol>").attr("id", "ol" + index));
+                $("#under").append($("<h3>" + name + ": " + head + "</h3>"));
+                $("#under").append($("<div></div>").attr("id", "cdesc" + index).append($("<p> <b>Description: </b> </p>").attr("id", "cpdesc").append(desc)));
+/*                $("#cpdesc").append($("<ol></ol>").attr("id", "ol" + index));*/
 
                 $("#under").append("<b>Concentrations:</b>")
 
-                let concUl = document.createElement('ul');
-                concUl.id = "concUL";
-                
-                $("#content").append(concUl);
 
                 $.each(value.concentrations, function(index, value) {
                     $("#under").append("<li>" + value + "</li>");
@@ -75,17 +71,26 @@
         getData({ path: '/degrees/graduate' }).done(function (output) {
             //console.log(output);
             $.each(output.graduate, function (index, value) {
+                var nameg = value.degreeName.toUpperCase();
                 var head = value.title;
                 var desc = value.description;
                 
 
-                $("#grad").append($("<h3></h3>").attr("id", "cheadg" + index));
-                $("#cheadg" + index).append(head);
+                $("#grad").append($("<h3>" + nameg + ": " + head + "</h3>"));
                 $("#grad").append($("<div></div>").attr("id", "cdescg" + index).append($("<p></p>").attr("id", "cpdescg").append(desc)));
                 $("#cpdescg").append($("<ol></ol>").attr("id", "ol" + index));
+
+                let concUl = document.createElement('ul');
+                concUl.id = "concUL";
+
+                $("#content").append(concUl);
+
+                $.each(value.concentrations, function (index, value) {
+                    $("#grad").append("<li>" + value + "</li>");
+                })
             });
-            $("#cheadg" + 3).hide();
-            $("#cdescg" + 3).hide();
+            //$("#cheadg" + 3).hide();
+            //$("#cdescg" + 3).hide();
             $(function () {
                 $("#grad").accordion();
             });
