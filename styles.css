@@ -29,6 +29,22 @@ h1 {
     text-align: center;
   }
 
+#under {
+    margin: 3%;
+    padding: 3%;
+    background: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3%;
+}
+
+#grad {
+    margin: 3%;
+    padding: 3%;
+    background: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3%;
+}
+
 @keyframes glow {
     from {
       text-shadow: 0 0 20px #2d9da9;
