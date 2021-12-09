@@ -1,0 +1,38 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/*
+    Make div of a fixed size and set the thumbnail as
+    its background-image, then setting background-size to cover.
+    This will give much better thumbnails, as it scales and crops
+    the image to make it fit. If you want to avoid cutting off
+    the image's edges, give the div a background-color and set
+    background-size to contain, which instead scales down the
+    image to make it fit and creates a "letterbox" effect.
+    https://stackoverflow.com/questions/27460065/how-to-make-same-sized-thumbnails/27460341
+*/
+.thumbnail {
+    background-color: black;
+    width: 250px;
+    height: 200px;
+    display: inline-block; /* makes it fit in like an <img> */
+    background-size: contain; /* or contain */
+    background-position: center center;
+    background-repeat: no-repeat;
+}
