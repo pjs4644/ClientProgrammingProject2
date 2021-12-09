@@ -77,3 +77,4 @@ C:\Users\Paul Goldman\OneDrive\Documents\Fall_2021\Lecture24_Dependency_Injectio
 C:\Users\Paul Goldman\OneDrive\Documents\Fall_2021\Lecture24_Dependency_Injection\Project3_Base_Code\obj\Debug\net6.0\ref\Project3_Base_Code.dll
 C:\Users\Paul Goldman\OneDrive\Documents\Fall_2021\Lecture24_Dependency_Injection\Project3_Base_Code\obj\Debug\net6.0\Project3_Base_Code.pdb
 C:\Users\Paul Goldman\OneDrive\Documents\Fall_2021\Lecture24_Dependency_Injection\Project3_Base_Code\obj\Debug\net6.0\Project3_Base_Code.genruntimeconfig.cache
+C:\Users\pschw\Source\Repos\pjs4644\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.dll
