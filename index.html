@@ -2,9 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+
 <title>Page Title</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="styles.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function () {
@@ -22,10 +23,17 @@
 
         //Outputs Faculty
         getData({ path: '/people/faculty/' }).done(function (data) {
+            
+
+            let fac = document.createElement('div');
+            fac.id = "facDiv";
+            $('#content').append(fac);
+
+            $('#facDiv').append("<h1>Faculty</h1>")
 
             let ul = document.createElement('ul');
             ul.id = "facultyUL";
-            $('#content').append(ul);
+            $('#facDiv').append(ul);
 
             $.each(data.faculty, function (i, item) {
 
@@ -39,47 +47,219 @@
         });
 
 
+        //Outputs undergrad degrees and their information
+        getData({ path: '/degrees/undergraduate' }).done(function (output) {
+            //console.log(output);
+
+            $('#under').append("<h1 id='undergradTitle'>Undergraduate</h1>");
+            $.each(output.undergraduate, function (index, value) {
+                var name = value.degreeName.toUpperCase();
+                var head = value.title;
+                var desc = value.description;
+
+                $("#under").append($("<h3>" + name + ": " + head + "</h3>"));
+                $("#under").append($("<div><b>Description: </b></div>").attr("id", "cdesc" + index).append(desc));
+/*                $("#cpdesc").append($("<ol></ol>").attr("id", "ol" + index));*/
+
+                $("#under").append("<b>Concentrations:</b>");
+
+
+                $.each(value.concentrations, function(index, value) {
+                    $("#under").append("<li>" + value + "</li>");
+                })
+            });
+            
+        });
+
+
+        //Outputs graduate degrees and their information
+        getData({ path: '/degrees/graduate' }).done(function (output) {
+            //console.log(output);
+            $('#grad').append("<h1 id='gradTitle'>Graduate</h1>");
+            $.each(output.graduate, function (index, value) {
+                var nameg = value.degreeName;
+                var head = value.title;
+                var desc = value.description;
+
+                if (value.concentrations) {
+                    name = nameg.toUpperCase();
+                    $("#grad").append($("<h3>" + name + ": " + head + "</h3>"));
+                    $("#grad").append($("<div><b>Description: </b></div>").attr("id", "cdescg" + index).append(desc));
+                    /*                $("#cpdesc").append($("<ol></ol>").attr("id", "ol" + index));*/
+
+                    $("#grad").append("<b>Concentrations:</b>");
+
+                    $.each(value.concentrations, function (index, value) {
+                        $("#grad").append("<li>" + value + "</li>");
+                    })
+                }
+
+                else {
+                    $("#grad").append($("<h3>Graduate Advanced Certificates</h3>"));
+                    $("#grad").append($("<div><b>Available Certificates: </b></div>"));
+
+                    $.each(value.availableCertificates, function (index, value) {
+                        $("#grad").append("<li>" + value + "</li>");
+                    })
+                }
+            });
+            //$("#cheadg" + 3).hide();
+            //$("#cdescg" + 3).hide();
+            
+        });
+
+
         //Outputs minors and their information
         getData({ path: '/minors/' }).done(function (output, status, jqXHR) {
             console.log(status);
             console.log(jqXHR);
+            $("#content").append("<h1 id='minorsTitle'>Minors</h1>")
             for (var i = 0; i < output.UgMinors.length; i++) {
+
+                var masterMin = document.createElement("div");
+                masterMin.id = 'mastermin';
+                $('#content').append(masterMin);
+
+                var minorsSection = document.createElement("div");
+                minorsSection.id = 'minorInfo' + i;
+                $('#masterMin').append(minorsSection);
+
                 $.each(output.UgMinors[i], function (index2, value2) {
                     if (index2 == "name") {
                         courseName = value2;
-                        $("#content").append(
-                            "<b>" + index2 + "</b>: " + value2 + "<br>"
+                        $("#minorInfo" + i).append(
+                            "<b>Name: </b>" + value2 + "<br>"
                         )
                     } else if (index2 == "courses") {
-                        $("#content").append(
+                        $("#minorInfo" + i).append(
                             "<b>Courses</b>, see course details at end of page:<br>"
                         )
                         $.each(value2, function (index4A, value4A) {
-                            $("#content").append(
+                            $("#minorInfo" + i).append(
                                 value4A + "<br>"
                             )
                         })
                         $.each(value2, function (index4, value4) {
                             getData({ path: '/course/courseID=' + value4 }).done(function (output1) {
                                 $.each(output1, function (index20, value20) {
-                                    $("#content").append(
-                                        "<b>" + index20 + "</b>: " + value20 + "<br>"
+                                    $("#minorInfo" + i).append(
+                                        "<b>Description: </b>" + value20 + "<br>"
                                     )
                                 })
-                                $("#content").append("<br>");
+                                $("#minorInfo" + i).append("<br>");
                             })
                         })
 
                     } else {
-                        $("#content").append(
+                        $("#minorInfo" + i).append(
                             "<b>" + index2 + "</b>: " + value2 + "<br>"
                         )
                     }
-                    $("#content").append("<br>");
+                    $("#minorInfo" + i).append("<br>");
                 })
-            }
+                
+            } //for
+
+        }); //getdata
+
+        getData({ path: '/footer/' }).done(function (output) {
+            $("#footer").append(output.copyright.html)
+            console.log(output.copyright);
+        });
+
+        //ABOUT SECTION**********************************************************
+         
+        getData({ path: '/about/' }).done(function (output) {
+            console.log(output);
+            var aboutInfo = document.createElement('div');
+            aboutInfo.id = 'aboutInfo';
+            $('#content').append(aboutInfo);
+             
+            $('#aboutInfo').append("<h1 id='aboutTitle'>About</h1>");
+            $('#aboutInfo').append(output.title + "<br>");
+            $('#aboutInfo').append(output.description + "<br>");
+            $('#aboutInfo').append(output.quote + "<br>");
+            $('#aboutInfo').append(output.quoteAuthor + "<br>");
+            
 
         });
+        //END OF ABOUT*******************************************************************
+        //Research Section**********************************************************
+        getData({ path: '/research/' }).done(function (output) {
+            console.log(output);
+            $('#content').append("<h1 id='researchTitle'>Research</h1>");
+            for (var i = 0; i < output.byFaculty.length; i++) {
+
+                var masterRes = document.createElement('div');
+                masterRes.id = 'masterRes'
+                $('#content').append(masterRes);
+
+                var researchInfo = document.createElement('div');
+                researchInfo.id = 'researchInfo' + i
+                $('#masterRes').append(researchInfo);
+                $.each(output.byFaculty[i], function (index2, value2) {
+
+                    if (index2 == "facultyName") {
+                        $("#researchInfo" + i).append("<b>Name: </b>" + value2 + "<br>")
+                    }
+                    else if (index2 == "username") {
+                        $("#researchInfo" + i).append("<b>Username: </b>" + value2 + "<br>");
+                    }
+                    else if (index2 == "citations") {
+                        
+                        let researchUl = document.createElement('ul');
+                        researchUl.id = "researchUL" + i;
+                        $("#researchInfo" + i).append("<b>" + index2 + "</b>: ");
+                        $('#researchInfo' + i).append(researchUl);
+                        
+                        for (let j = 0; j < value2.length; j++) {
+                            console.log(value2[j]);
+                            $("#researchUL" + i).append("<li> " + value2[j] + "</li>");
+                        }
+                       
+                        
+                    }
+
+                });
+
+            }
+
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            $("#content").append("<br>")
+            for (var i = 0; i < output.byInterestArea.length; i++) {
+                var interestAreaInfo = document.createElement('div');
+                interestAreaInfo.id = 'interestAreaInfo' + i;
+                $('#content').append(interestAreaInfo);
+               
+                $.each(output.byInterestArea[i], function (index2, value2) {
+
+                    if (index2 == "areaName") {
+                        $("#interestAreaInfo" + i).append("<b>Area Name: </b>" + value2 + "<br>")
+                    }
+
+                    else if (index2 == "citations") {
+                        let researchUl2 = document.createElement('ul')
+                        researchUl2.id = 'interestUL' + i;
+                        $("#interestAreaInfo" + i).append("<b>Citations: </b>");
+                        $("#interestAreaInfo" + i).append(researchUl2);
+                        for (let j = 0; j < value2.length; j++) {
+                            $("#interestUL" + i).append("<li>" + value2[j] + "</li>" + "<br>")
+                        }
+                    }
+
+                });
+            }
+        });
+        //END OF RESEARCH*****************************************************
+
+
+        
     })
 
 
@@ -88,8 +268,63 @@
     </head>
 
 <body>
-    <section id="content" style="height:300px; font-size: large;">
+    <section id="content" font-size: large;">
+        <div id="under"></div>
+        <div id="grad"></div>
     </section>
+    <iframe src="http://ist.rit.edu/api/map.php" title="Rit employement map"></iframe>
+    <div id="footer"></div>
 </body>
 </html>
+
+<!--<style>
+    /* Tabs section 'undergraduate' & 'graduate' */
+    #tabs-1, #tabs-2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /* Individual Degree boxes */
+    .uDegBoxes, .gDegBoxes {
+        flex: 1 1 25%;
+        width: 18em;
+        height: 14em;
+        border: 3px solid gray;
+        border-radius: .5em;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .uDegBoxes:hover, .gDegBoxes:hover {
+        border: 3px solid green;
+        background-color: yellow;
+     }
+    /* Anchor modal tag to seperate btw boxes */
+    .degree-anchor {
+        margin: 1em;
+    }
+    /* Name of the degree */
+    .degree-name {
+        font-size: 1.1rem;
+        padding: 1em;
+        font-weight: bold;
+    }
+    /* Degree descriptions */
+    .degree-Desc {
+        font-size: .9rem;
+        padding: 1em;
+    }
+
+    ul.concentration-list {
+        padding-left: 1.4em;
+    }
+
+    .concentration-subheading {
+        font-size: 1.2rem;
+        padding-bottom: .5em;
+    }
+    /* Certificates section in the degrees section */
+    #certificates-container {
+        margin-top: 1.5em;
+    }
+</style>-->
 
