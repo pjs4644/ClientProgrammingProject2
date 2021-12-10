@@ -115,15 +115,9 @@
             console.log(jqXHR);
             $("#content").append("<h1 id='minorsTitle'>Minors</h1>")
             for (var i = 0; i < output.UgMinors.length; i++) {
-
-                var masterMin = document.createElement("div");
-                masterMin.id = 'mastermin';
-                $('#content').append(masterMin);
-
                 var minorsSection = document.createElement("div");
                 minorsSection.id = 'minorInfo' + i;
-                $('#masterMin').append(minorsSection);
-
+                $('#content').append(minorsSection);
                 $.each(output.UgMinors[i], function (index2, value2) {
                     if (index2 == "name") {
                         courseName = value2;
@@ -189,14 +183,9 @@
             console.log(output);
             $('#content').append("<h1 id='researchTitle'>Research</h1>");
             for (var i = 0; i < output.byFaculty.length; i++) {
-
-                var masterRes = document.createElement('div');
-                masterRes.id = 'masterRes'
-                $('#content').append(masterRes);
-
                 var researchInfo = document.createElement('div');
                 researchInfo.id = 'researchInfo' + i
-                $('#masterRes').append(researchInfo);
+                $('#content').append(researchInfo);
                 $.each(output.byFaculty[i], function (index2, value2) {
 
                     if (index2 == "facultyName") {
@@ -276,55 +265,4 @@
     <div id="footer"></div>
 </body>
 </html>
-
-<!--<style>
-    /* Tabs section 'undergraduate' & 'graduate' */
-    #tabs-1, #tabs-2 {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    /* Individual Degree boxes */
-    .uDegBoxes, .gDegBoxes {
-        flex: 1 1 25%;
-        width: 18em;
-        height: 14em;
-        border: 3px solid gray;
-        border-radius: .5em;
-        background-color: white;
-        overflow: hidden;
-    }
-
-    .uDegBoxes:hover, .gDegBoxes:hover {
-        border: 3px solid green;
-        background-color: yellow;
-     }
-    /* Anchor modal tag to seperate btw boxes */
-    .degree-anchor {
-        margin: 1em;
-    }
-    /* Name of the degree */
-    .degree-name {
-        font-size: 1.1rem;
-        padding: 1em;
-        font-weight: bold;
-    }
-    /* Degree descriptions */
-    .degree-Desc {
-        font-size: .9rem;
-        padding: 1em;
-    }
-
-    ul.concentration-list {
-        padding-left: 1.4em;
-    }
-
-    .concentration-subheading {
-        font-size: 1.2rem;
-        padding-bottom: .5em;
-    }
-    /* Certificates section in the degrees section */
-    #certificates-container {
-        margin-top: 1.5em;
-    }
-</style>-->
 
