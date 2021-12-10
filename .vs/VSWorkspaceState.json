@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\project3",
+    "\\project3\\bin",
+    "\\project3\\bin\\Debug\\net6.0\\publish",
+    "\\project3\\Views",
+    "\\project3\\Views\\Shared",
+    "\\project3\\wwwroot",
+    "\\project3\\wwwroot\\css",
+    "\\project3\\wwwroot\\js",
+    "\\project3\\wwwroot\\lib"
   ],
-  "SelectedNode": "\\C:\\Users\\evanh\\ClientProgrammingProject2",
+  "SelectedNode": "\\project3\\Views\\Home\\Privacy.cshtml",
   "PreviewInSolutionExplorer": false
 }
