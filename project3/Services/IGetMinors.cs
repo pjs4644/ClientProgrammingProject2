@@ -1,6 +1,10 @@
-﻿namespace Project3_Base_Code.Services
+﻿using Project3_Base_Code.Models;
+
+
+namespace Project3_Base_Code.Services
 {
-    public class IGetMinors
+    public interface IGetMinors
     {
+       
     }
 }

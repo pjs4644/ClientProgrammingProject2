@@ -1,6 +1,6 @@
 ﻿namespace Project3_Base_Code.Models
 {
-    class AboutUs
+    public class AboutUs
     {
 
         public string title { get; set; }

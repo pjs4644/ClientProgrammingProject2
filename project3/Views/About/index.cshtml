@@ -1,6 +1,38 @@
-﻿namespace Project3_Base_Code.Views.About
+﻿@model Project3_Base_Code.ViewModels.AboutVM
+
+<h2>@Model.Title</h2>
+
+@for (var i = 0; i < Model.About.Count; i++)
 {
-    public class index
-    {
-    }
+<div class="container">
+
+    <div class="row">
+
+        @for (var j = 0; j < 4; j++) 
+        {
+            <div class="col-lg-3">
+                <div class="caption">
+                    <h3 style="font-size:small">
+                        @Model.About[i + j].title
+                    </h3>
+                    <h3 style="font-size:small">
+                        @Model.About[i + j].description
+                    </h3>
+                    <h3 style="font-size:small">
+                        @Model.About[i + j].quote
+                    </h3>
+                    <h3 style="font-size:small">
+                        @Model.About[i + j].quoteAuthor
+                    </h3>
+                </div>
+                @if (i + j + 1 >= Model.About.Count)
+                {
+                    break;
+                }
+                </div>    
+        }
+            </div>
+
+    </div>
+    i = i + 3;
 }
