@@ -105,3 +105,14 @@ C:\Users\evanh\ClientProgrammingProject2\project3\obj\Debug\net6.0\scopedcss\pro
 C:\Users\evanh\ClientProgrammingProject2\project3\obj\Debug\net6.0\ref\Project3_Base_Code.dll
 C:\Users\evanh\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.pdb
 C:\Users\evanh\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.genruntimeconfig.cache
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.csproj.AssemblyReference.cache
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.AssemblyInfoInputs.cache
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.AssemblyInfo.cs
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.csproj.CoreCompileInputs.cache
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.RazorAssemblyInfo.cache
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.RazorAssemblyInfo.cs
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.dll
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\ref\Project3_Base_Code.dll
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.pdb
