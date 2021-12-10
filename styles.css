@@ -45,6 +45,15 @@ h1 {
     border-radius: 3%;
 }
 
+
+#content {
+    margin: 3%;
+    padding: 3%;
+    background: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3%;
+}
+
 @keyframes glow {
     from {
       text-shadow: 0 0 20px #2d9da9;
@@ -60,6 +69,13 @@ h1 {
     /* negative value of footer height */
 }
 #facDiv {
+    margin: 3%;
+    padding: 3%;
+    background: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3%;
+}
+#aboutInfo {
     margin: 3%;
     padding: 3%;
     background: border-box;
