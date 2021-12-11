@@ -49,6 +49,42 @@ namespace Project3_Base_Code.Services
                     return underdegreeList;
                     //return "Exception"; ;
                 }
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync("api/people/degrees/graduate", HttpCompletionOption.ResponseHeadersRead);
+                    response.EnsureSuccessStatusCode();
+                    var data = await response.Content.ReadAsStringAsync();
+
+                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<GetDegrees>>>(data);
+
+                    List<Degrees> graddegreeList = new List<Degrees>();
+
+                    foreach (KeyValuePair<string, List<Degrees>> kvp in rtnResults)
+                    {
+                        foreach (var item in kvp.Value)
+                        {
+                            graddegreeList.Add(item);
+                        }
+                    }
+
+                    return graddegreeList;
+                }
+
+                catch (HttpRequestException hre)
+                {
+                    var msg = hre.Message;
+                    List<Degrees> graddegreeList = new List<Degrees>();
+                    return graddegreeList;
+                    //return "HttpRequestException";
+                }
+                catch (Exception ex)
+                {
+                    var msg = ex.Message;
+                    List<Degrees> graddegreeList = new List<Degrees>();
+                    return graddegreeList;
+                    //return "Exception"; ;
+                }
             }
         }
     }
