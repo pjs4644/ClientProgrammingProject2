@@ -2,5 +2,6 @@
 {
     public interface IGetDegrees
     {
+        Task<List<Degrees>> GetAllDegrees();
     }
 }
