@@ -12,7 +12,7 @@ namespace Project3_Base_Code.Services
             {
                 client.BaseAddress = new Uri("http://www.ist.rit.edu/");
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                
 
                 try
                 {
