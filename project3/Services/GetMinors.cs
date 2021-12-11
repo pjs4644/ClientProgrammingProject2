@@ -1,4 +1,8 @@
-﻿namespace Project3_Base_Code.Services
+﻿using System.Net.Http.Headers;
+using System.Text.Json;
+using Project3_Base_Code.Models;
+
+namespace Project3_Base_Code.Services
 {
     public class GetMinors : IGetMinors
     {
@@ -16,7 +20,7 @@
                     response.EnsureSuccessStatusCode();
                     var data = await response.Content.ReadAsStringAsync();
 
-                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<AboutUs>>>(data);
+                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<Minor>>>(data);
 
                     List<Minor> minorList = new List<Minor>();
 

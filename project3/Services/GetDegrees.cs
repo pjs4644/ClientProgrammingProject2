@@ -1,4 +1,8 @@
-﻿namespace Project3_Base_Code.Services
+﻿using System.Net.Http.Headers;
+using System.Text.Json;
+using Project3_Base_Code.Models;
+
+namespace Project3_Base_Code.Services
 {
     public class GetDegrees : IGetDegrees
     {
@@ -12,37 +16,37 @@
 
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/people/degrees", HttpCompletionOption.ResponseHeadersRead);
+                    HttpResponseMessage response = await client.GetAsync("api/people/degrees/undergraduate", HttpCompletionOption.ResponseHeadersRead);
                     response.EnsureSuccessStatusCode();
                     var data = await response.Content.ReadAsStringAsync();
 
-                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<Faculty>>>(data);
+                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<GetDegrees>>>(data);
 
-                    List<Degrees> degreeList = new List<Degrees>();
+                    List<Degrees> underdegreeList = new List<Degrees>();
 
                     foreach (KeyValuePair<string, List<Degrees>> kvp in rtnResults)
                     {
                         foreach (var item in kvp.Value)
                         {
-                            degreeList.Add(item);
+                            underdegreeList.Add(item);
                         }
                     }
 
-                    return degreeList;
+                    return underdegreeList;
                 }
 
                 catch (HttpRequestException hre)
                 {
                     var msg = hre.Message;
-                    List<Degrees> degreeList = new List<Degrees>();
-                    return degreeList;
+                    List<Degrees> underdegreeList = new List<Degrees>();
+                    return underdegreeList;
                     //return "HttpRequestException";
                 }
                 catch (Exception ex)
                 {
                     var msg = ex.Message;
-                    List<Degrees> degreeList = new List<Degrees>();
-                    return degreeList;
+                    List<Degrees> underdegreeList = new List<Degrees>();
+                    return underdegreeList;
                     //return "Exception"; ;
                 }
             }

@@ -8,11 +8,11 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Project3_Base_Code
 build_property.RootNamespace = Project3_Base_Code
-build_property.ProjectDir = C:\Users\pschw\source\repos\ClientProgrammingProject2\project3\
+build_property.ProjectDir = C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\pschw\source\repos\ClientProgrammingProject2\project3
+build_property.MSBuildProjectDirectory = C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3
 build_property._RazorSourceGeneratorDebug = 
 
 [C:/Users/pschw/source/repos/ClientProgrammingProject2/project3/Views/About/index.cshtml]

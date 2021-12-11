@@ -15,7 +15,7 @@ namespace Project3_Base_Code.Controllers
         }
         public IActionResult Index()
         {
-            var allMinors = _minorsRepository.GetAllMinors().Result.OrderBy(f => f.username);
+            var allMinors = _minorsRepository.GetAllMinor().Result.OrderBy(f => f.title);
             var minorsVM = new MinorsVM()
             {
                 Minors = allMinors.ToList(),
