@@ -20,7 +20,7 @@ namespace Project3_Base_Code.Controllers
             var aboutVM = new AboutVM()
             {
                 About = allAbout.ToList(),
-                Title = "This is your Faculty"
+                Title = "About"
             };
             return View(aboutVM);
         }
