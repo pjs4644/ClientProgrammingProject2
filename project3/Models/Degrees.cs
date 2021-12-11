@@ -1,7 +1,7 @@
 ﻿namespace Project3_Base_Code.Models
 {
 
-    class Degrees
+    public class Degrees
     {
    
         public string degreeName { get; set; }
