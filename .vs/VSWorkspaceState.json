@@ -3,14 +3,14 @@
     "",
     "\\project3",
     "\\project3\\bin",
-    "\\project3\\bin\\Debug\\net6.0\\publish",
+    "\\project3\\Models",
+    "\\project3\\Services",
+    "\\project3\\ViewModels",
     "\\project3\\Views",
-    "\\project3\\Views\\Shared",
-    "\\project3\\wwwroot",
-    "\\project3\\wwwroot\\css",
-    "\\project3\\wwwroot\\js",
-    "\\project3\\wwwroot\\lib"
+    "\\project3\\Views\\Faculty",
+    "\\project3\\Views\\Home",
+    "\\project3\\Views\\Shared"
   ],
-  "SelectedNode": "\\project3\\Views\\Home\\Privacy.cshtml",
+  "SelectedNode": "\\project3\\Services\\GetMinors.cs",
   "PreviewInSolutionExplorer": false
 }
