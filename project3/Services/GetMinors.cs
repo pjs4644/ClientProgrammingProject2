@@ -16,7 +16,7 @@ namespace Project3_Base_Code.Services
 
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/people/minors", HttpCompletionOption.ResponseHeadersRead);
+                    HttpResponseMessage response = await client.GetAsync("api/minors", HttpCompletionOption.ResponseHeadersRead);
                     response.EnsureSuccessStatusCode();
                     var data = await response.Content.ReadAsStringAsync();
 
