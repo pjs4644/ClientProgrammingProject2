@@ -3,14 +3,14 @@
     "",
     "\\project3",
     "\\project3\\bin",
-    "\\project3\\Models",
-    "\\project3\\Services",
-    "\\project3\\ViewModels",
-    "\\project3\\Views",
-    "\\project3\\Views\\Faculty",
-    "\\project3\\Views\\Home",
-    "\\project3\\Views\\Shared"
+    "\\project3\\bin\\Debug\\net6.0",
+    "\\project3\\bin\\Release",
+    "\\project3\\wwwroot",
+    "\\project3\\wwwroot\\js",
+    "\\project3\\wwwroot\\lib",
+    "\\project3\\wwwroot\\lib\\jquery",
+    "\\project3\\wwwroot\\lib\\jquery\\dist"
   ],
-  "SelectedNode": "\\project3\\Services\\GetMinors.cs",
+  "SelectedNode": "\\project3\\Project3_Base_Code.sln",
   "PreviewInSolutionExplorer": false
 }

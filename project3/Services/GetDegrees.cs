@@ -6,7 +6,7 @@ namespace Project3_Base_Code.Services
 {
     public class GetDegrees : IGetDegrees
     {
-         public async Task<List<Degrees>> GetAllDegrees()
+         public async Task<Dictionary<string, List<Degrees>>>GetAllDegrees()
         {
             using (var client = new HttpClient())
             {
