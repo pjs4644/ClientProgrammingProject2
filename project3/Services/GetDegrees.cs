@@ -1,6 +1,6 @@
 ﻿namespace Project3_Base_Code.Services
 {
-    public class GetDegrees
+    public class GetDegrees : IGetDegrees
     {
     }
 }

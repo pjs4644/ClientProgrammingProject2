@@ -1,6 +1,6 @@
 ﻿namespace Project3_Base_Code.Models
 {
-    class GradDegrees
+    public class GradDegrees
     {
         public List<Graduate> graduate { get; set; }
     }

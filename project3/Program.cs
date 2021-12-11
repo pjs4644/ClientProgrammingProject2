@@ -6,6 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IGetFaculty, GetFaculty>();
+builder.Services.AddTransient<IGetAbout, GetAbout>();
+builder.Services.AddTransient<IGetDegrees, GetDegrees>();
+builder.Services.AddTransient<IGetMinors, GetMinors>();
+
 
 var app = builder.Build();
 
