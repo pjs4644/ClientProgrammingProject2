@@ -16,7 +16,7 @@
                     response.EnsureSuccessStatusCode();
                     var data = await response.Content.ReadAsStringAsync();
 
-                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<AboutUs>>>(data);
+                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<Minor>>>(data);
 
                     List<Minor> minorList = new List<Minor>();
 
