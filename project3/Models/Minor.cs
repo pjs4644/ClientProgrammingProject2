@@ -9,8 +9,5 @@
         public string note { get; set; }
     }
 
-    public class Minors
-    {
-        public List<Minor> Minors { get; set; }
-    }
+    
 }

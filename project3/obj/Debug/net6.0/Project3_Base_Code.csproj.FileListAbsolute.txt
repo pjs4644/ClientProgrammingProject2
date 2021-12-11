@@ -105,7 +105,6 @@ C:\Users\evanh\ClientProgrammingProject2\project3\obj\Debug\net6.0\scopedcss\pro
 C:\Users\evanh\ClientProgrammingProject2\project3\obj\Debug\net6.0\ref\Project3_Base_Code.dll
 C:\Users\evanh\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.pdb
 C:\Users\evanh\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.genruntimeconfig.cache
-C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.csproj.AssemblyReference.cache
 C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.AssemblyInfoInputs.cache
 C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.AssemblyInfo.cs
@@ -116,3 +115,19 @@ C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\
 C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.dll
 C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\ref\Project3_Base_Code.dll
 C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.pdb
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\appsettings.json
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\Project3_Base_Code.staticwebassets.runtime.json
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\Project3_Base_Code.exe
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\faculty.json
+C:\Users\pschw\source\repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\Project3_Base_Code.deps.json
+C:\Users\pschw\source\repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\Project3_Base_Code.runtimeconfig.json
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\Project3_Base_Code.dll
+C:\Users\pschw\source\repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\ref\Project3_Base_Code.dll
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\bin\Debug\net6.0\Project3_Base_Code.pdb
+C:\Users\pschw\source\repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\pschw\source\repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\scopedcss\bundle\Project3_Base_Code.styles.css
+C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\scopedcss\projectbundle\Project3_Base_Code.bundle.scp.css
+C:\Users\pschw\source\repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.genruntimeconfig.cache
