@@ -11,7 +11,7 @@ namespace Project3_Base_Code.Controllers
 
         public DegreesController(IGetDegrees degreesRepository)
         {
-            _degreesRepository = facultyRepository;
+            _degreesRepository = degreesRepository;
         }
         public IActionResult Index()
         {

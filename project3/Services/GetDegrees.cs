@@ -20,11 +20,11 @@ namespace Project3_Base_Code.Services
                     response.EnsureSuccessStatusCode();
                     var data = await response.Content.ReadAsStringAsync();
 
-                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<GetDegrees>>>(data);
+                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<Degrees>>>(data);
 
                     List<Degrees> underdegreeList = new List<Degrees>();
 
-                    foreach (KeyValuePair<Dictionary<string, List<Degrees>>> kvp in rtnResults)
+                    foreach (KeyValuePair<string, List<Degrees>> kvp in rtnResults)
                     {
                         foreach (var item in kvp.Value)
                         {
@@ -50,7 +50,7 @@ namespace Project3_Base_Code.Services
                     //return "Exception"; ;
                 }
 
-                try
+                /*try
                 {
                     HttpResponseMessage response = await client.GetAsync("api/people/degrees/graduate", HttpCompletionOption.ResponseHeadersRead);
                     response.EnsureSuccessStatusCode();
@@ -84,7 +84,7 @@ namespace Project3_Base_Code.Services
                     List<Degrees> graddegreeList = new List<Degrees>();
                     return graddegreeList;
                     //return "Exception"; ;
-                }
+                }*/
             }
         }
     }

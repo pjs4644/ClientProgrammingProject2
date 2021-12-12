@@ -131,4 +131,3 @@ C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\
 C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\scopedcss\bundle\Project3_Base_Code.styles.css
 C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\scopedcss\projectbundle\Project3_Base_Code.bundle.scp.css
 C:\Users\pschw\source\repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.genruntimeconfig.cache
-C:\Users\pschw\Source\Repos\ClientProgrammingProject2\project3\obj\Debug\net6.0\Project3_Base_Code.csproj.AssemblyReference.cache
