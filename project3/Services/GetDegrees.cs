@@ -24,7 +24,7 @@ namespace Project3_Base_Code.Services
 
                     List<Degrees> underdegreeList = new List<Degrees>();
 
-                    foreach (KeyValuePair<string, List<Degrees>> kvp in rtnResults)
+                    foreach (KeyValuePair<Dictionary<string, List<Degrees>>> kvp in rtnResults)
                     {
                         foreach (var item in kvp.Value)
                         {
