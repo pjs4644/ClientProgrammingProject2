@@ -15,10 +15,12 @@ namespace Project3_Base_Code.Controllers
         }
         public IActionResult Index()
         {
-            var allDegrees = _degreesRepository.GetAllDegrees().Result.OrderBy(f => f.degreeName);
+            var underDegrees = _degreesRepository.GetUnderDegrees().Result.OrderBy(f => f.degreeName);
+            var gradDegrees = _degreesRepository.GetGradDegrees().Result.OrderBy(f => f.degreeName);
             var degreesVM = new DegreesVM()
             {
-                degrees = allDegrees.ToList(),
+                underDegrees = underDegrees.ToList(),
+                gradDegrees = gradDegrees.ToList(),
                 description = "Degrees"
             };
             return View(degreesVM);

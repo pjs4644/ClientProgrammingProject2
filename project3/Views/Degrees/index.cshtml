@@ -1,6 +1,79 @@
-﻿namespace Project3_Base_Code.Views.Degrees
+﻿@model Project3_Base_Code.ViewModels.DegreesVM
+
+<h1>@Model.description</h1>
+<h2>UnderGraduate Degrees</h2>
+@for (var i = 0; i < Model.underDegrees.Count; i++)
 {
-    public class index
-    {
-    }
+<div class="container">
+
+    <div class="row">
+
+
+        <div class="caption">
+            
+            <h3 style="font-size:large; text-transform:uppercase;">
+                @Model.underDegrees[i].degreeName
+            </h3>
+            <h3 style="font-size:medium">
+                @Model.underDegrees[i].title
+            </h3>
+            <h3 style="font-size:small">
+                @Model.underDegrees[i].description
+            </h3>
+          
+            <h3 style="font-size:small">
+                @Model.underDegrees[i].concentrations
+            </h3>
+
+           
+            <h3 style="font-size:small">
+                @Model.underDegrees[i].availableCertificates
+            </h3>
+
+            <br/>
+
+            
+        </div>
+
+
+
+    </div>
+
+</div>
+}
+<h2>Graduate Degrees</h2>
+@for (var i = 0; i < Model.gradDegrees.Count; i++)
+{
+<div class="container">
+
+    <div class="row">
+
+
+        <div class="caption">
+            
+            <h3 style="font-size:large; text-transform:uppercase">
+                @Model.gradDegrees[i].degreeName
+            </h3>
+            <h3 style="font-size:medium">
+                @Model.gradDegrees[i].title
+            </h3>
+            <h3 style="font-size:small">
+                @Model.gradDegrees[i].description
+            </h3>
+          
+            <h3 style="font-size:small">
+                @Model.gradDegrees[i].concentrations
+            </h3>
+
+           
+            <h3 style="font-size:small">
+                @Model.gradDegrees[i].availableCertificates
+            </h3>
+        </div>
+
+
+
+    </div>
+
+</div>
 }

@@ -5,6 +5,7 @@ namespace Project3_Base_Code.Services
 {
     public interface IGetDegrees
     {
-      Task<List<Degrees>> GetAllDegrees();
+      Task<List<Degrees>> GetUnderDegrees();
+        Task<List<Degrees>> GetGradDegrees();
     }
 }

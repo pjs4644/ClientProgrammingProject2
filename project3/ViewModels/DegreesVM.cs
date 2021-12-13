@@ -4,7 +4,9 @@ namespace Project3_Base_Code.ViewModels
 {
     public class DegreesVM
     {
-        public List<Degrees> degrees { get; set; }
+        public List<Degrees> underDegrees { get; set; }
+        public List<Degrees> gradDegrees { get; set; }
+
         public string description { get; set; }
     }
 }

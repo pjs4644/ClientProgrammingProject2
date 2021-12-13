@@ -6,7 +6,7 @@ namespace Project3_Base_Code.Services
 {
     public class GetDegrees : IGetDegrees
     {
-         public async Task<List<Degrees>>GetAllDegrees()
+         public async Task<List<Degrees>>GetUnderDegrees()
         {
             using (var client = new HttpClient())
             {
@@ -33,6 +33,8 @@ namespace Project3_Base_Code.Services
                     }
 
                     return underdegreeList;
+
+
                 }
 
                 catch (HttpRequestException hre)
@@ -50,13 +52,24 @@ namespace Project3_Base_Code.Services
                     //return "Exception"; ;
                 }
 
-                /*try
+                
+            }
+        }
+        public async Task<List<Degrees>> GetGradDegrees()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://www.ist.rit.edu/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/people/degrees/graduate", HttpCompletionOption.ResponseHeadersRead);
+                    HttpResponseMessage response = await client.GetAsync("api/degrees/graduate", HttpCompletionOption.ResponseHeadersRead);
                     response.EnsureSuccessStatusCode();
                     var data = await response.Content.ReadAsStringAsync();
 
-                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<GetDegrees>>>(data);
+                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<Degrees>>>(data);
 
                     List<Degrees> graddegreeList = new List<Degrees>();
 
@@ -69,6 +82,8 @@ namespace Project3_Base_Code.Services
                     }
 
                     return graddegreeList;
+
+
                 }
 
                 catch (HttpRequestException hre)
@@ -84,8 +99,11 @@ namespace Project3_Base_Code.Services
                     List<Degrees> graddegreeList = new List<Degrees>();
                     return graddegreeList;
                     //return "Exception"; ;
-                }*/
+                }
+
+
             }
         }
+
     }
 }
