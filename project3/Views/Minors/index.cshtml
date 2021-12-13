@@ -1,6 +1,36 @@
-﻿namespace Project3_Base_Code.Views.Minors
+﻿@model Project3_Base_Code.ViewModels.MinorsVM
+
+<h2>@Model.Title</h2>
+
+@for (var i = 0; i < Model.Minors.Count; i++)
 {
-    public class index
-    {
-    }
+<div class="container">
+
+    <div class="row">
+
+
+        <div class="caption">
+            <h3 style="font-size:large">
+                @Model.Minors[i].name
+            </h3>
+            <h3 style="font-size:medium">
+                @Model.Minors[i].title
+            </h3>
+            <h3 style="font-size:small">
+                @Model.Minors[i].description
+            </h3>
+            @*<h3 style="font-size:small">
+                @Model.Minor[i].courses
+            </h3>*@
+            <h3 style="font-size:small">
+                @Model.Minors[i].note
+            </h3>
+            <br/>
+        </div>
+
+
+
+    </div>
+
+</div>
 }

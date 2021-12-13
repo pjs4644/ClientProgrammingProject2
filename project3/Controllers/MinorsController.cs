@@ -19,7 +19,7 @@ namespace Project3_Base_Code.Controllers
             var minorsVM = new MinorsVM()
             {
                 Minors = allMinors.ToList(),
-                Title = "This is your Faculty"
+                Title = "Available Minors"
             };
             return View(minorsVM);
         }
