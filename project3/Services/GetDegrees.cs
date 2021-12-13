@@ -16,7 +16,7 @@ namespace Project3_Base_Code.Services
 
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/people/degrees/undergraduate", HttpCompletionOption.ResponseHeadersRead);
+                    HttpResponseMessage response = await client.GetAsync("api/degrees/undergraduate", HttpCompletionOption.ResponseHeadersRead);
                     response.EnsureSuccessStatusCode();
                     var data = await response.Content.ReadAsStringAsync();
 

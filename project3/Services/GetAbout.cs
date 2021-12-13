@@ -17,7 +17,7 @@ namespace Project3_Base_Code.Services
 
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/people/about", HttpCompletionOption.ResponseHeadersRead);
+                    HttpResponseMessage response = await client.GetAsync("api/about", HttpCompletionOption.ResponseHeadersRead);
                     response.EnsureSuccessStatusCode();
                     var data = await response.Content.ReadAsStringAsync();
 
@@ -44,6 +44,7 @@ namespace Project3_Base_Code.Services
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex);
                     var msg = ex.Message;
                     List<AboutUs> aboutList = new List<AboutUs>();
                     return aboutList;
