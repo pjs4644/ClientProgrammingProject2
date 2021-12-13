@@ -19,7 +19,7 @@ namespace Project3_Base_Code.Controllers
             var facultyVM = new FacultyVM()
             {
                 Faculty = allFaculty.ToList(),
-                Title = "This is your Faculty"
+                Title = "Faculty"
             };
             return View(facultyVM);
         }

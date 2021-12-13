@@ -16,7 +16,7 @@ namespace Project3_Base_Code.Controllers
         }
         public IActionResult Index()
         {
-            var allAbout = _aboutRepository.GetAllAbout().Result.OrderBy(f => f.title);
+            var allAbout = _aboutRepository.GetAllAbout().Result;
             var aboutVM = new AboutVM()
             {
                 About = allAbout.ToList(),

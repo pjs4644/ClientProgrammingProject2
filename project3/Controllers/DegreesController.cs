@@ -9,9 +9,9 @@ namespace Project3_Base_Code.Controllers
     {
         private readonly IGetDegrees _degreesRepository;
 
-        public DegreesController(IGetDegrees facultyRepository)
+        public DegreesController(IGetDegrees degreesRepository)
         {
-            _degreesRepository = facultyRepository;
+            _degreesRepository = degreesRepository;
         }
         public IActionResult Index()
         {

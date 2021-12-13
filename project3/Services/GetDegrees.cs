@@ -6,7 +6,7 @@ namespace Project3_Base_Code.Services
 {
     public class GetDegrees : IGetDegrees
     {
-         public async Task<Dictionary<string, List<Degrees>>>GetAllDegrees()
+         public async Task<List<Degrees>>GetAllDegrees()
         {
             using (var client = new HttpClient())
             {
@@ -16,11 +16,11 @@ namespace Project3_Base_Code.Services
 
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/people/degrees/undergraduate", HttpCompletionOption.ResponseHeadersRead);
+                    HttpResponseMessage response = await client.GetAsync("api/degrees/undergraduate", HttpCompletionOption.ResponseHeadersRead);
                     response.EnsureSuccessStatusCode();
                     var data = await response.Content.ReadAsStringAsync();
 
-                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<GetDegrees>>>(data);
+                    var rtnResults = JsonSerializer.Deserialize<Dictionary<string, List<Degrees>>>(data);
 
                     List<Degrees> underdegreeList = new List<Degrees>();
 
@@ -50,7 +50,7 @@ namespace Project3_Base_Code.Services
                     //return "Exception"; ;
                 }
 
-                try
+                /*try
                 {
                     HttpResponseMessage response = await client.GetAsync("api/people/degrees/graduate", HttpCompletionOption.ResponseHeadersRead);
                     response.EnsureSuccessStatusCode();
@@ -84,7 +84,7 @@ namespace Project3_Base_Code.Services
                     List<Degrees> graddegreeList = new List<Degrees>();
                     return graddegreeList;
                     //return "Exception"; ;
-                }
+                }*/
             }
         }
     }
