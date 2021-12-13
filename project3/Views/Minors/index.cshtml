@@ -19,9 +19,15 @@
             <h3 style="font-size:small">
                 @Model.Minors[i].description
             </h3>
-            @*<h3 style="font-size:small">
-                @Model.Minor[i].courses
-            </h3>*@
+
+            @*TODO: implement courses (how to access list of courses for each minor??)*@
+            @*@foreach (string str in Model.Minors[i].Courses)
+            {
+                <h3 style="font-size:small">
+                    @Model.Minors[i].Courses;
+                </h3>
+            }*@
+
             <h3 style="font-size:small">
                 @Model.Minors[i].note
             </h3>
